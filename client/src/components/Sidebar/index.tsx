@@ -54,6 +54,7 @@ export function Sidebar() {
             alt="Logo"
             width={40}
             height={40}
+            className="rounded-full"
           />
           <div>
             <h3 className="text-md font-bold tracking-wide dark:text-gray-200">
@@ -69,8 +70,37 @@ export function Sidebar() {
         {/* NAVBAR LINKS */}
         <nav className="z-10 w-full">
           <SidebarLink icon={Home} label="Home" href="/" />
+          <SidebarLink icon={Briefcase} label="Timeline" href="/timeline" />
+          <SidebarLink icon={Search} label="Search" href="/search" />
+          <SidebarLink icon={Settings} label="Settings" href="/settings" />
+          <SidebarLink icon={User} label="Users" href="/users" />
+          <SidebarLink icon={Users} label="Teams" href="/teams" />
         </nav>
+
+        {/* PROJECTS LINKS */}
+        {/* <button className="flex w-full items-center justify-between px-8 py-3 text-gray-500">
+          <ChevronUp className="h-5 w-5" />
+        </button> */}
+
+        {/* PROJECTS LIST */}
+        {/* <button className="flex w-full items-center justify-between px-8 py-3 text-gray-500">
+          <span className="">Priority</span>
+          <ChevronDown className="h-5 w-5" />
+        </button> */}
       </div>
+      {/* <div className="z-10 mt-32 flex w-full flex-col items-center gap-4 bg-white px-8 py-4 dark:bg-black md:hidden">
+        <div className="flex w-full items-center">
+          <div className="align-center flex h-9 w-9 justify-center">
+            <User className="h-6 w-6 cursor-pointer self-center rounded-full dark:text-white" />
+          </div>
+          <span className="mx-3 text-gray-800 dark:text-white">
+            tuituiut
+          </span>
+          <button className="self-start rounded bg-blue-400 px-4 py-2 text-xs font-bold text-white hover:bg-blue-500 md:block">
+            Sign out
+          </button>
+        </div>
+      </div> */}
     </div>
   );
 }

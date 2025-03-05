@@ -20,14 +20,23 @@ export function Navbar() {
 
       {/* Icons */}
       <div className="flex items-center">
+        <button className="rounded p-2 hover:bg-gray-100">
+          <Moon className="h-6 w-6 cursor-pointer dark:text-white" />
+        </button>
         <Link href="/settings" className="h-min w-min rounded p-2 hover:bg-gray-100">
           <Settings className="h-6 w-6 cursor-pointer dark:text-white" />
         </Link>
         <div className="ml-2 mr-5 hidden min-h-[2em] w-[0.1rem] bg-gray-200 md:inline-block"></div>
         <div className="hidden items-center justify-between md:flex">
           <div className="align-center flex h-9 w-9 justify-center">
-            
+            <User className="h-6 w-6 cursor-pointer self-center rounded-full dark:text-white" />
           </div>
+          <span className="mx-3 text-gray-800 dark:text-white">
+            Teste
+          </span>
+          <button className="hidden rounded bg-blue-400 px-4 py-2 text-xs font-bold text-white hover:bg-blue-500 md:block">
+            Sign out
+          </button>
         </div>
       </div>
     </div>
