@@ -1,5 +1,15 @@
-// store.ts
 import { useRef } from "react";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import {
+  TypedUseSelectorHook,
+  useDispatch,
+  useSelector,
+  Provider,
+} from "react-redux";
+import globalReducer from "@/state";
+import { api } from "@/state/api";
+import { setupListeners } from "@reduxjs/toolkit/query";
+
 import {
   persistStore,
   persistReducer,
@@ -10,14 +20,9 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { Provider } from "react-redux";
-import { setupListeners } from "@reduxjs/toolkit/query";
 import { PersistGate } from "redux-persist/integration/react";
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
-import globalReducer from "@/state";
-import { api } from "@/state/api";
 
 const createNoopStorage = () => ({
   getItem: (_key: string) => Promise.resolve<string | null>(null),
@@ -54,9 +59,12 @@ export const makeStore = () => {
   return store;
 };
 
+/* REDUX TYPES */
 export type AppStore = ReturnType<typeof makeStore>;
 export type RootState = ReturnType<AppStore["getState"]>;
 export type AppDispatch = AppStore["dispatch"];
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
   const storeRef = useRef<AppStore>();
